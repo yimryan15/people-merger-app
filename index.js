@@ -10,7 +10,7 @@ fs.readFile('people1.json', 'utf8', (err, data) => {
     if (err) throw err;
     let people2 = JSON.parse(data);
 
-    //  merge the data set
+    //  merge and sort the data set
     let finalData = people1.concat(people2).sort();
 
       //  write the file
