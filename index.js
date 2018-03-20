@@ -1,22 +1,41 @@
 const fs = require('fs');
 
-//read first file
-fs.readFile('people1.json', 'utf8', (err, data) => {
-  if (err) throw err;
-  let people1 = JSON.parse(data);
+// function mergerApp(fileOne, fileTwo, newFileName) {
+//   fs.readFile('people1.json', 'utf8', (err, data) => {
+//     const people1 = JSON.parse(data);
+//
+//     fs.readFile('people1.json', 'utf8', (err, data) => {
+//       const people2 = JSON.parse(data);
+//       const mergeData = people1.concat(people2).sort();
+//
+//       fs.writeFile(`${newFileName}.txt`, mergeData, () => {
+//         console.log('The file has been saved successfully!');
+//       });
+//     });
+//   });
+// };
+//
+// function mergerApp(fileOne, fileTwo, newFileName) {
+//   const people1 = fs.readFileSync('people1.json', 'utf8', (err, data) => {
+//     return data;
+//   });
+//
+//   const people2 = fs.readFileSync('people2.json', 'utf8', (err, data) => {
+//     return data;
+//   });
+//
+//   const formattedData1 = JSON.parse(people1);
+//   const formattedData2 = JSON.parse(people2);
+//   const mergeData = formattedData1.concat(formattedData2).sort();
+//
+//   fs.writeFileSync(`${newFileName}.txt`, formattedData1.concat(formattedData2).sort(), () => {
+//     console.log('The file has been saved successfully!');
+//   });
+// };
+//
+// mergerApp('people1.json', 'people2.json', 'peopleComplete');
 
-  //  read second file
-  fs.readFile('people2.json', 'utf8', (err, data) => {
-    if (err) throw err;
-    let people2 = JSON.parse(data);
-
-    //  merge and sort the data set
-    let finalData = people1.concat(people2).sort();
-
-      //  write the file
-      fs.writeFile('peopleComplete.txt', finalData, (err) => {
-        if (err) throw err;
-        console.log('The file has been saved successfully!');
-      });
-  });
+// //Bonus
+fs.readdir('./directory', function( err, data) {
+  console.log(data)
 });
