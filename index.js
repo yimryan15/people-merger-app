@@ -18,7 +18,7 @@ function mergerApp(fileOne, fileTwo, newFileName) {
 };
 
 //synchchronous
-function mergerApp(fileOne, fileTwo, newFileName) {
+function mergerAppSync(fileOne, fileTwo, newFileName) {
   const people1 = fs.readFileSync('people1.json', 'utf8', (err, data) => {
     return data;
   });
@@ -32,22 +32,23 @@ function mergerApp(fileOne, fileTwo, newFileName) {
   const mergeData = formattedData1.concat(formattedData2).sort();
 
   fs.writeFileSync(`${newFileName}.txt`, formattedData1.concat(formattedData2).sort(), () => {
-    console.log('The file has been saved successfully!');
+    console.log('The file has been saved successfully synchchronously!');
   });
 };
 
 mergerApp('people1.json', 'people2.json', 'peopleComplete');
+mergerAppSync('people1.json', 'people2.json', 'peopleCompleteSync');
 
 //Bonus
-function mergePeople(path) {
-  const files = fs.readdirSync(path);
-  const mergedPeople = [];
-  files.forEach(function(file) {
-    const data = JSON.parse(fs.readFileSync(`${path}/${file}`, 'utf8'));
-    Array.prototype.push.apply(mergedPeople, data);
-
-  });
-  fs.writeFileSync(`${path}/${fileName}`, mergePeople.sort());
-}
-
-mergePeople();
+// function mergePeople(path) {
+//   const files = fs.readdirSync(path);
+//   const mergedPeople = [];
+//   files.forEach(function(file) {
+//     const data = JSON.parse(fs.readFileSync(`${path}/${file}`, 'utf8'));
+//     Array.prototype.push.apply(mergedPeople, data);
+//
+//   });
+//   fs.writeFileSync(`${path}/${fileName}`, mergePeople.sort());
+// }
+//
+// mergePeople();
