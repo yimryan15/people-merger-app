@@ -17,6 +17,7 @@ function mergerApp(fileOne, fileTwo, newFileName) {
   });
 };
 
+//synchchronous
 function mergerApp(fileOne, fileTwo, newFileName) {
   const people1 = fs.readFileSync('people1.json', 'utf8', (err, data) => {
     return data;
@@ -37,7 +38,7 @@ function mergerApp(fileOne, fileTwo, newFileName) {
 
 mergerApp('people1.json', 'people2.json', 'peopleComplete');
 
-// //Bonus
+//Bonus
 function mergePeople(path) {
   const files = fs.readdirSync(path);
   const mergedPeople = [];
